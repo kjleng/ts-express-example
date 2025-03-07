@@ -10,3 +10,10 @@ npx tsc --init
 configure tsconfig.json
 add script in package.json
 npm run dev
+
+
+#### start using docker #####
+```
+docker-compose -f docker-compose.dev.yml up
+docker-compose -f docker-compose.prod.yml up
+```

@@ -1,11 +1,10 @@
 import { Request, Response } from "express";
-import products from '../data/product.json';
+import { getProducts as getAllProducts } from '../models/product';
 
 const getProducts = async (req: Request, res: Response) => {
   try {
-    // const result = await fetch("http://localhost:8081/");
-    // const data = await result.json();
-    // res.json(data);
+    const products = await getAllProducts();
+
     res.json(products);
   } catch (error) {
     console.error("Error:", error)

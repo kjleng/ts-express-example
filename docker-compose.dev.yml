@@ -1,0 +1,26 @@
+services:
+  api:
+    container_name: api
+    build:
+      context: .
+      target: build
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    ports:
+      - 3000:3000
+    command: npm run dev
+
+  db: 
+    container_name: postgres
+    image: postgres:15.6-alpine
+    ports:
+      - 5432:5432
+    volumes:
+      - data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=api_db
+
+volumes:
+  data:
