@@ -1,12 +1,12 @@
 import { Pool } from "pg";
+import { config } from "../config";
 
 const pool = new Pool({
-  // host: env.POSTGRES_HOST,
-  // user: env.POSTGRES_USER,
-  // password: env.POSTGRES_PASSWORD,
-  // database: env.POSTGRES_DB,
-  // port: env.POSTGRES_PORT,
-  host: "db", user: "postgres", password: "secret", port: 5432, database: "api_db",
+  host: config.postgresHost,
+  user: config.postgresUser,
+  password: config.postgresPassword,
+  database: config.postgresDB,
+  port: Number(config.postgresPort),
   idleTimeoutMillis: 30000
 });
 
