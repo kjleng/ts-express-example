@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { getProducts as getAllProducts } from '../models/product';
 
-const getProducts = async (req: Request, res: Response) => {
+export const getProducts = async (req: Request, res: Response) => {
   try {
     const products = await getAllProducts();
 
@@ -50,5 +50,3 @@ const getProducts = async (req: Request, res: Response) => {
 //   products.splice(index, 1)
 //   res.status(200).json('Product deleted')
 // })
-
-export { getProducts };

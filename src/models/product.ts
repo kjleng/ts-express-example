@@ -1,4 +1,4 @@
-import pool from "../config/database";
+import { pool } from "../config/database";
 
 type Product = {
   id: number;
@@ -6,8 +6,8 @@ type Product = {
   price: number;
 }
 export const getProducts = async (): Promise<Product[]> => {
+  const sql = "SELECT id, name, price FROM products";
   try {
-    const sql = "SELECT id, name, price FROM products";
     const result = await pool.query<Product>(sql);
 
     return result.rows;
